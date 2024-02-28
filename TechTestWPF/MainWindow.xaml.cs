@@ -1255,8 +1255,9 @@ namespace TechTestWPF
                             dealer.isBlackjack = true;
                             dealer.playerState = PlayerState.Blackjack;
 
-                            foreach (Player player in playerList)
+                            foreach (Player player in playerList.Where(x=>x.playerState == PlayerState.InPlay))
                             {
+                                
                                 player.playerState = PlayerState.Stuck;
                                 DisableButtons(player);
                             }
